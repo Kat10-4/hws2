@@ -34,23 +34,23 @@ type InnerMessageType={
 export const message0: MessageType = {
     id: 0,
     user: {
-        avatar: avatar, // можно менять
-        name: 'Brad Pitt',  // можно менять
+        avatar: avatar2, // можно менять
+        name: 'Kateryna Diachenko',  // можно менять
     },
     message: {
-        text: 'Hello, darling!', // можно менять
+        text: 'Hi, Brad', // можно менять
         time: '22:00', // можно менять
     },
 }
 export const friendMessage0: MessageType = {
     id: 100,
     user: {
-        avatar: avatar2, // можно менять
-        name: 'Kateryna Diachenko', // можно менять
+        avatar: avatar, // можно менять
+        name: 'Brad Pitt', // можно менять
     },
     message: {
-        text: 'Hi, Brad', // можно менять
-        time: '23:00', // можно менять
+        text: 'Hello, darling!', // можно менять
+        time: '22:01', // можно менять
     },
 }
 
