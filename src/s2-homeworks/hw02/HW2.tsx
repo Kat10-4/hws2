@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
 import Affairs from './affairs/Affairs'
 import s2 from '../../s1-main/App.module.css'
-import affair from './affairs/affair/Affair';
+
 
 /*
- * 1 - описать типы AffairPriorityType, AffairType
- * 2 - указать нужный тип для defaultAffairs
  * 3 - дописать типы и логику функции filterAffairs и проверить её тестами
  * 4 - выполнить пункт 3 для функции deleteAffair
  * 5 - указать нужный тип в useState с affairs
@@ -27,8 +25,8 @@ export type AffairType = {
 export type FilterType = 'all' | AffairPriorityType
 
 // constants
-const defaultAffairs: AffairType[] = [ // need to fix any
-    {_id: 1, name: 'React', priority: 'high'}, // студенты могут изменить содержимое name и количество элементов в массиве, ...priority не менять!
+const defaultAffairs: AffairType[] = [
+    {_id: 1, name: 'React', priority: 'high'},
     {_id: 2, name: 'anime', priority: 'low'},
     {_id: 3, name: 'games', priority: 'low'},
     {_id: 4, name: 'work', priority: 'high'},
@@ -39,18 +37,18 @@ const defaultAffairs: AffairType[] = [ // need to fix any
 export const filterAffairs = (affairs: AffairType[], filter: FilterType): AffairType[] => { // need to fix any
     return filter === 'all' ? affairs : affairs.filter(affair => affair.priority === filter)
 }
-export const deleteAffair = (affairs: any, _id: any): any => { // need to fix any
 
-    return affairs // need to fix
+export const deleteAffair = (affairs: AffairType[], _id: number): any => {
+    return affairs.filter(affair => affair._id !== _id)
 }
 
 function HW2() {
-    const [affairs, setAffairs] = useState<any>(defaultAffairs) // need to fix any
+    const [affairs, setAffairs] = useState<AffairType[]>(defaultAffairs)
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: any) => { // need to fix any
-        // need to fix
+    const deleteAffairCallback = (_id: number) => {
+        setAffairs(deleteAffair(filteredAffairs, _id))
     }
 
     return (
